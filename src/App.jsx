@@ -1,15 +1,12 @@
-import * as React from 'react'
-import { createRoot } from 'react-dom/client'
+import React from 'react'
+import './App.css'
 
-// Create a container element for your app
-const appContainer = document.createElement('div')
-document.body.appendChild(appContainer)
+const App = () => {
+  return (
+    <div>
+      <div className='headText'>Welcome to React!</div>
+    </div>
+  )
+}
 
-// Use the container element as the root for your React app
-const root = createRoot(appContainer)
-
-root.render(
-  <div>
-    <h2>Hello from React!</h2>
-  </div>
-)
+export default App
