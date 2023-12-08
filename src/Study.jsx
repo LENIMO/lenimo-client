@@ -33,7 +33,7 @@ const Study = ({ session }) => {
     const getUserName = async () => {
       const { data, error } = await supabase
         .from('profiles')
-        .select(`username`)
+        .select(`user_name`)
         .eq('id', user.id)
         .single()
       setUsername(data.username)

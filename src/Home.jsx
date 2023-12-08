@@ -12,8 +12,9 @@ const Home = ({ session }) => {
       try {
         let { data, error } = await supabase
           .from('profiles')
-          .select('id, username, avatar_url, position')
+          .select('id, user_name, avatar_url, position')
         if (error) throw error
+        console.log(data)
         setProfiles(data)
       } catch (error) {
         console.error('Error fetching profiles:', error.message)
@@ -22,7 +23,9 @@ const Home = ({ session }) => {
 
     async function getStudyRecord() {
       try {
-        let { data, error } = await supabase.from('StudyRecord').select('*')
+        let { data, error } = await supabase
+          .from('StudyRecord')
+          .select('*, profiles(user_name, avatar_url, position) ')
         if (error) throw error
         setStudyRecords(
           data.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))

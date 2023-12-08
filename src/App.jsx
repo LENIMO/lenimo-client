@@ -46,7 +46,10 @@ function App() {
             <Routes>
               <Route path='/main_window' element={<Home session={session} />} />
               <Route path='/study' element={<Study session={session} />} />
-              <Route path='/summoner/:user_id' element={<Summoner />} />
+              <Route
+                path='/summoner/:user_id'
+                element={<Summoner session={session} />}
+              />
               <Route path='/week' element={<Week />} />
               <Route
                 path='/profile'

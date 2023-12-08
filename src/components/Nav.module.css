@@ -1,6 +1,7 @@
 .side_nav {
   width: 11dvw;
   height: auto;
+  min-height: 96dvh;
   min-width: 140px;
 
   background-color: #282b33;

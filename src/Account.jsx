@@ -17,7 +17,7 @@ export default function Account({ session }) {
 
       const { data, error } = await supabase
         .from('profiles')
-        .select(`username, position, avatar_url`)
+        .select(`user_name, position, avatar_url`)
         .eq('id', user.id)
         .single()
 
@@ -25,7 +25,7 @@ export default function Account({ session }) {
         if (error) {
           console.warn(error)
         } else if (data) {
-          setUsername(data.username)
+          setUsername(data.user_name)
           setPosition(data.position)
           setAvatarUrl(data.avatar_url)
         }
