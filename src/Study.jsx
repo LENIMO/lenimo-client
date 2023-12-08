@@ -8,8 +8,8 @@ const Study = ({ session }) => {
   const [subjects, setSubjects] = useState([])
   const [formData, setFormData] = useState({
     subject: '',
-    goalTime: 0,
-    studyTime: 0,
+    goalTime: null,
+    studyTime: null,
     summaryNote: '',
     selfEvaluation: 0,
     learningMaterialLink: '',
