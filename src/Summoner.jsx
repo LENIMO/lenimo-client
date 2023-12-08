@@ -14,7 +14,7 @@ const Summoner = (session) => {
         let { data, error } = await supabase
           .from('StudyRecord')
           .select('*')
-          .eq('user_name', user_Id.toString)
+          .eq('user_name', user_Id)
         if (error) throw error
         setStudyRecords(
           data.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))

@@ -3,7 +3,6 @@ import styles from './StudyItem.module.css'
 import { supabase } from '../supabaseClient'
 
 const StudyItem = ({ data }) => {
-  console.log(data)
   const publicUrl = supabase.storage
     .from('avatars')
     .getPublicUrl(`${data.profiles.avatar_url}`)

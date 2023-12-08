@@ -66,7 +66,7 @@ const Nav = () => {
           }
         }}
       >
-        <h1/> 랭킹
+        <h1 /> 랭킹
       </NavLink>
     </nav>
   )

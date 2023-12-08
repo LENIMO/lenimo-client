@@ -4,12 +4,13 @@ import { supabase } from './supabaseClient'
 
 const Study = ({ session }) => {
   const [username, setUsername] = useState(null)
+  const [total_study_time, setTotal_study_time] = useState(0)
   const [isloading, setIsloading] = useState(false)
   const [subjects, setSubjects] = useState([])
   const [formData, setFormData] = useState({
     subject: '',
-    goalTime: null,
-    studyTime: null,
+    goalTime: '',
+    studyTime: '',
     summaryNote: '',
     selfEvaluation: 0,
     learningMaterialLink: '',
@@ -33,10 +34,11 @@ const Study = ({ session }) => {
     const getUserName = async () => {
       const { data, error } = await supabase
         .from('profiles')
-        .select(`user_name`)
+        .select(`user_name, total_study_time`)
         .eq('id', user.id)
         .single()
       setUsername(data.username)
+      setTotal_study_time(data.total_study_time)
       return data
     }
 
@@ -69,6 +71,14 @@ const Study = ({ session }) => {
           self_evaluation: Number(formData.selfEvaluation),
         },
       ])
+      .select()
+
+    const { updateData, updateError } = await supabase
+      .from('profiles')
+      .update({
+        total_study_time: Number(total_study_time) + Number(formData.studyTime),
+      })
+      .eq('id', user.id)
       .select()
 
     if (error === null) {

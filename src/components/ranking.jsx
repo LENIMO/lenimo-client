@@ -22,14 +22,22 @@ const Ranking = ({ session }) => {
 
     async function getStudyRecord() {
       try {
+        let obj = {}
+        const userArr = []
         let { data, error } = await supabase
           .from('StudyRecord')
-          .select('*, ofiles(user_name, avatar_url, position) ')
-      
+          .select('*, profiles(user_name, avatar_url, position) ')
+        console.log(data)
+        for (let i = 0; i < data.length; i++) {
+          userArr.push(data[i])
+        }
+
+        userArr.sort((a, b) => b.study_time - a.study_time)
+
+        console.log(userArr)
+
         if (error) throw error
-        setStudyRecords(
-          data.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
-        )
+        setStudyRecords(userArr)
       } catch (error) {
         console.error('Error fetching study records:', error.message)
       }
@@ -40,7 +48,7 @@ const Ranking = ({ session }) => {
   }, [session])
 
   return (
-    <div >
+    <div>
       <StudyList studyRecords={studyRecords} headText={'최신'} />
     </div>
   )
