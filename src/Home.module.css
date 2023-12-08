@@ -1,0 +1,8 @@
+.HomeContainer {
+  width: 89dvw;
+  max-height: 96dvh;
+  overflow: scroll;
+  display: flex;
+  justify-content: center;
+  padding: 2%;
+}

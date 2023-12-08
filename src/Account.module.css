@@ -1,5 +1,6 @@
 .accountContainer {
   width: 89dvw;
+  height: 96dvh;
   display: flex;
   flex-direction: column;
   align-items: center;

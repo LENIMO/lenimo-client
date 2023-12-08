@@ -33,7 +33,7 @@ const Nav = () => {
         <AiOutlineEdit /> 내 학습
       </NavLink>
       <NavLink
-        to='/week'
+        to='/summoner/:user_id'
         style={({ isActive }) => {
           return {
             textDecoration: isActive ? 'underline' : '',

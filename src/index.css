@@ -4,6 +4,10 @@ body {
   background-color: #363944;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 * {
   font-family: Pretendard;
   font-weight: 400;
