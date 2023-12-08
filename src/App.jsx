@@ -1,9 +1,15 @@
-import './App.css'
+import styles from './App.module.css'
 import React, { useState, useEffect } from 'react'
+import { MemoryRouter, Routes, Route } from 'react-router-dom'
 import { supabase } from './supabaseClient'
-import { ThemeSupa } from '@supabase/auth-ui-shared'
 import SupabaseAuth from './SupabaseAuth.jsx'
 import Account from './Account.jsx'
+import Study from './Study.jsx'
+import Home from './Home.jsx'
+import Nav from './components/Nav.jsx'
+import Titlebar from './components/Titlebar.jsx'
+import Week from './Week.jsx'
+import Summoner from './Summoner.jsx'
 
 function App() {
   const [session, setSession] = useState(null)
@@ -20,21 +26,36 @@ function App() {
 
   return (
     <div>
-      {!session ? (
-        <div
-          style={{
-            paddingTop: '33dvh',
-            paddingRight: '35dvw',
-            paddingLeft: '35dvw',
-            minWidth: '500px',
-            minHeight: '500px',
-          }}
-        >
-          <SupabaseAuth />
-        </div>
-      ) : (
-        <Account key={session.user.id} session={session} />
-      )}
+      <Titlebar />
+      <MemoryRouter initialEntries={['/main_window']}>
+        {!session ? (
+          <div
+            style={{
+              paddingTop: '33dvh',
+              paddingRight: '35dvw',
+              paddingLeft: '35dvw',
+              minWidth: '500px',
+              minHeight: '500px',
+            }}
+          >
+            <SupabaseAuth />
+          </div>
+        ) : (
+          <div className={styles.container}>
+            <Nav />
+            <Routes>
+              <Route path='/main_window' element={<Home session={session} />} />
+              <Route path='/study' element={<Study session={session} />} />
+              <Route path='/summoner/:user_id' element={<Summoner />} />
+              <Route path='/week' element={<Week />} />
+              <Route
+                path='/profile'
+                element={<Account key={session.user.id} session={session} />}
+              />
+            </Routes>
+          </div>
+        )}
+      </MemoryRouter>
     </div>
   )
 }

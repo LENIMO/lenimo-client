@@ -1,0 +1,29 @@
+.side_nav {
+  width: 11dvw;
+  height: 96dvh;
+  min-width: 140px;
+
+  background-color: #282b33;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.side_nav > a {
+  width: 100%;
+  height: 8dvh;
+
+  padding: 0.5rem;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+
+  text-underline-position: under;
+}
+
+.side_nav a svg {
+  font-size: 2rem;
+}

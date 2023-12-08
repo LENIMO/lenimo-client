@@ -1,0 +1,100 @@
+.wrap {
+  width: 89dvw;
+  height: 96dvh;
+}
+.StudyForm {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.subjectInput {
+  grid-area: 1 / 1 / 2 / 4;
+}
+.goalTimeInput {
+  grid-area: 1 / 4 / 2 / 5;
+}
+.studyTimeInput {
+  grid-area: 1 / 5 / 2 / 6;
+}
+.summaryNoteInput {
+  grid-area: 2 / 1 / 4 / 6;
+}
+.selfEvaluationInput {
+  grid-area: 4 / 1 / 5 / 6;
+}
+.learningMaterialLinkInput {
+  grid-area: 5 / 1 / 6 / 6;
+}
+.submitBtn {
+  grid-area: 6 / 5 / 7 / 6;
+}
+.subjectInput {
+  grid-area: 1 / 1 / 2 / 4;
+}
+.goalTimeInput {
+  grid-area: 1 / 4 / 2 / 5;
+}
+.studyTimeInput {
+  grid-area: 1 / 5 / 2 / 6;
+}
+.summaryNoteInput {
+  grid-area: 2 / 1 / 4 / 6;
+}
+.selfEvaluationInput {
+  grid-area: 4 / 1 / 5 / 6;
+}
+.learningMaterialLinkInput {
+  grid-area: 5 / 1 / 6 / 6;
+}
+.submitBtn {
+  grid-area: 6 / 5 / 7 / 6;
+}
+
+.subjectInput,
+.goalTimeInput,
+.studyTimeInput,
+.summaryNoteInput,
+.selfEvaluationInput,
+.learningMaterialLinkInput,
+.submitBtn,
+.subjectInput,
+.goalTimeInput,
+.studyTimeInput,
+.summaryNoteInput,
+.selfEvaluationInput,
+.learningMaterialLinkInput,
+.submitBtn {
+  padding: 2dvh;
+  margin: 1dvh;
+  background-color: #282b33;
+  border-radius: 2dvh;
+}
+
+.selfEvaluationText {
+  width: 100%;
+  display: flex;
+  color: #a8a8a8;
+  justify-content: space-between;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5dvh;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+
+.inputStyle {
+  font-size: 15px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  padding: 2dvh;
+  background-color: rgb(233, 233, 233);
+}

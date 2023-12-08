@@ -1,0 +1,42 @@
+.container {
+  -webkit-app-region: drag;
+  display: flex;
+  justify-content: space-between;
+  width: 100dvw;
+  height: 4dvh;
+  background-color: #282b33;
+}
+
+.left,
+.right {
+  -webkit-app-region: no-drag;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logoText {
+  margin-left: 0.5rem;
+  font-weight: 700;
+  color: #f9be26;
+}
+
+.closeBtn {
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+
+  font-size: 0.83rem;
+
+  padding-right: 0.4rem;
+  padding-left: 0.4rem;
+
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+
+  margin-right: 0.5rem;
+  border-radius: 1dvh;
+}
+.closeBtn:hover {
+  background-color: #363944;
+}
