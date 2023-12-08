@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Routes, Route, useParams } from 'react-router-dom'
 import styles from './Summoner.module.css'
 import StudyList from './components/StudyList.jsx'
+import { supabase } from './supabaseClient'
 
 const Summoner = (session) => {
   let { user_Id } = useParams()
