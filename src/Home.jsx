@@ -14,7 +14,6 @@ const Home = ({ session }) => {
           .from('profiles')
           .select('id, user_name, avatar_url, position')
         if (error) throw error
-        console.log(data)
         setProfiles(data)
       } catch (error) {
         console.error('Error fetching profiles:', error.message)

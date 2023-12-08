@@ -56,10 +56,7 @@ function App() {
                 path='/profile'
                 element={<Account key={session.user.id} session={session} />}
               />
-              <Route
-                path='/ranking'
-                element={<Ranking session={session} />}
-              />
+              <Route path='/ranking' element={<Ranking session={session} />} />
             </Routes>
           </div>
         )}

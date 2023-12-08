@@ -7,8 +7,6 @@ const StudyItem = ({ data }) => {
   const publicUrl = supabase.storage
     .from('avatars')
     .getPublicUrl(`${data.profiles.avatar_url}`)
-
-  console.log(data)
   return (
     <div className={styles.StudyItem}>
       <img
