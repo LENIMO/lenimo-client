@@ -10,6 +10,7 @@ import Nav from './components/Nav.jsx'
 import Titlebar from './components/Titlebar.jsx'
 import Week from './Week.jsx'
 import Summoner from './Summoner.jsx'
+import Ranking from './components/Ranking.jsx'
 
 function App() {
   const [session, setSession] = useState(null)
@@ -54,6 +55,10 @@ function App() {
               <Route
                 path='/profile'
                 element={<Account key={session.user.id} session={session} />}
+              />
+              <Route
+                path='/ranking'
+                element={<Ranking session={session} />}
               />
             </Routes>
           </div>

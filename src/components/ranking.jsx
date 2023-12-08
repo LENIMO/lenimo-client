@@ -1,16 +1,49 @@
-const express = require('express');
-const app = express();
+import React, { useState, useEffect } from 'react'
+import { supabase } from '../supabaseClient'
+import StudyList from './StudyList.jsx'
 
-const rankingData = [
-  { user_id: 1, user_name: 'User1', study_time: '2 hours' },
-  { user_id: 2, user_name: 'User2', study_time: '3 hours' },
-];
+const Ranking = ({ session }) => {
+  const [studyRecords, setStudyRecords] = useState([])
+  const [profiles, setProfiles] = useState([])
 
-app.get('/api/getRanking', (req, res) => {
-  res.json(rankingData);
-});
+  useEffect(() => {
+    async function getProfiles() {
+      try {
+        let { data, error } = await supabase
+          .from('profiles')
+          .select('id, user_name, avatar_url, position')
+        if (error) throw error
+        console.log(data)
+        setProfiles(data)
+      } catch (error) {
+        console.error('Error fetching profiles:', error.message)
+      }
+    }
 
-const PORT = 9000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+    async function getStudyRecord() {
+      try {
+        let { data, error } = await supabase
+          .from('StudyRecord')
+          .select('*, ofiles(user_name, avatar_url, position) ')
+      
+        if (error) throw error
+        setStudyRecords(
+          data.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
+        )
+      } catch (error) {
+        console.error('Error fetching study records:', error.message)
+      }
+    }
+
+    getProfiles()
+    getStudyRecord()
+  }, [session])
+
+  return (
+    <div >
+      <StudyList studyRecords={studyRecords} headText={'최신'} />
+    </div>
+  )
+}
+
+export default Ranking
