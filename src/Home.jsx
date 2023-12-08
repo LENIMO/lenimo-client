@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { supabase } from './supabaseClient'
 import StudyList from './components/StudyList.jsx'
+import styles from './Home.module.css'
 
 const Home = ({ session }) => {
   const [studyRecords, setStudyRecords] = useState([])
@@ -36,7 +37,7 @@ const Home = ({ session }) => {
   }, [session])
 
   return (
-    <div>
+    <div className={styles.HomeContainer}>
       <StudyList studyRecords={studyRecords} headText={'최신'} />
     </div>
   )

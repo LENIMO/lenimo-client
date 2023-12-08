@@ -13,6 +13,10 @@ const StudyItem = ({ data }) => {
       <div>{data.goal_time}</div>
       <div>{data.study_time}</div>
       <div>{data.self_evaluation}</div>
+      <div>{data.subject}</div>
+      <div>{data.goal_time}</div>
+      <div>{data.study_time}</div>
+      <div>{data.self_evaluation}</div>
     </div>
   )
 }
