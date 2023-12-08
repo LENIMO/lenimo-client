@@ -3,13 +3,18 @@ const path = require('path')
 module.exports = {
   packagerConfig: {
     asar: true,
-    icon: path.join(__dirname, '../images/icon'),
+    icon: path.join(process.cwd(), '/images/icon'),
   },
   rebuildConfig: {},
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
-      config: {},
+      config: {
+        // An URL to an ICO file to use as the application icon (displayed in Control Panel > Programs and Features).
+        iconUrl: path.join(process.cwd(), '/images/icon.ico'),
+        // The ICO file to use as the icon for the generated Setup.exe
+        setupIcon: path.join(process.cwd(), '/images/icon.ico'),
+      },
     },
     {
       name: '@electron-forge/maker-zip',
@@ -17,7 +22,11 @@ module.exports = {
     },
     {
       name: '@electron-forge/maker-deb',
-      config: {},
+      config: {
+        options: {
+          icon: path.join(process.cwd(), '/images/icon.png'),
+        },
+      },
     },
     {
       name: '@electron-forge/maker-rpm',
