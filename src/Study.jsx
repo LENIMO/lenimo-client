@@ -37,7 +37,7 @@ const Study = ({ session }) => {
         .select(`user_name, total_study_time`)
         .eq('id', user.id)
         .single()
-      setUsername(data.username)
+      setUsername(data.user_name)
       setTotal_study_time(data.total_study_time)
       return data
     }

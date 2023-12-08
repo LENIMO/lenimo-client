@@ -3,10 +3,12 @@ import styles from './StudyItem.module.css'
 import { supabase } from '../supabaseClient'
 
 const StudyItem = ({ data }) => {
+  const dateObject = new Date(data.created_at)
   const publicUrl = supabase.storage
     .from('avatars')
     .getPublicUrl(`${data.profiles.avatar_url}`)
 
+  console.log(data)
   return (
     <div className={styles.StudyItem}>
       <img
@@ -57,7 +59,7 @@ const StudyItem = ({ data }) => {
         </p>
         <p className={styles.fw400}>자기평가</p>
       </div>
-      <div></div>
+      <div>{dateObject.toLocaleString('ko-KR', { timeZone: 'UTC' })}</div>
     </div>
   )
 }

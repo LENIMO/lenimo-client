@@ -42,7 +42,7 @@ const Nav = () => {
           }
         }}
       >
-        <RiTodoLine /> 서머너
+        <RiTodoLine /> 나의 기록
       </NavLink>
       <NavLink
         to='/profile'
@@ -56,7 +56,7 @@ const Nav = () => {
       >
         <IoPersonCircleOutline /> 프로필
       </NavLink>
-      <NavLink
+      {/* <NavLink
         to='/ranking'
         style={({ isActive }) => {
           return {
@@ -67,7 +67,7 @@ const Nav = () => {
         }}
       >
         <h1 /> 랭킹
-      </NavLink>
+      </NavLink> */}
     </nav>
   )
 }
