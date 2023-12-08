@@ -49,7 +49,7 @@ export default function Account({ session }) {
 
     const updates = {
       id: user.id,
-      username,
+      user_name: username,
       position,
       avatar_url,
       updated_at: new Date(),
