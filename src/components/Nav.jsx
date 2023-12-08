@@ -56,6 +56,18 @@ const Nav = () => {
       >
         <IoPersonCircleOutline /> 프로필
       </NavLink>
+      <NavLink
+        to='/ranking'
+        style={({ isActive }) => {
+          return {
+            textDecoration: isActive ? 'underline' : '',
+            textUnderlineOffset: '2.1px',
+            backgroundColor: isActive ? '#363944' : '#282b33',
+          }
+        }}
+      >
+        <h1/> 랭킹
+      </NavLink>
     </nav>
   )
 }

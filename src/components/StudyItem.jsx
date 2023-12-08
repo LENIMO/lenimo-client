@@ -62,5 +62,4 @@ const StudyItem = ({ data }) => {
     </div>
   )
 }
-
 export default StudyItem
