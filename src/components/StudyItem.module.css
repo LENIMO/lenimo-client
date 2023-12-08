@@ -47,5 +47,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 5dvw;
+  gap: 0.2dvh;
+  width: 6dvw;
 }

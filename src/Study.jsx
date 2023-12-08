@@ -8,8 +8,8 @@ const Study = ({ session }) => {
   const [subjects, setSubjects] = useState([])
   const [formData, setFormData] = useState({
     subject: '',
-    goalTime: '',
-    studyTime: '',
+    goalTime: 0,
+    studyTime: 0,
     summaryNote: '',
     selfEvaluation: 0,
     learningMaterialLink: '',
@@ -106,14 +106,14 @@ const Study = ({ session }) => {
 
         <div className={styles.goalTimeInput}>
           <label className={styles.inputs}>
-            <h3>목표 시간:</h3>
+            <h3>목표 시간(분):</h3>
             <input
               className={styles.inputStyle}
-              type='text'
+              type='number'
               name='goalTime'
               value={formData['goalTime']}
               onChange={handleChange}
-              placeholder='HH:MM:SS'
+              placeholder='분 예시) 2시간 => 120분'
               required
             />
           </label>
@@ -121,14 +121,14 @@ const Study = ({ session }) => {
 
         <div className={styles.studyTimeInput}>
           <label className={styles.inputs}>
-            <h3>소요 시간:</h3>
+            <h3>소요 시간(분):</h3>
             <input
               className={styles.inputStyle}
-              type='text'
+              type='number'
               name='studyTime'
               value={formData['studyTime']}
               onChange={handleChange}
-              placeholder='HH:MM:SS'
+              placeholder='분 예시) 2시간 => 120분'
               required
             />
           </label>
