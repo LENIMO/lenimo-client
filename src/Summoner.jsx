@@ -31,7 +31,11 @@ const Summoner = (session) => {
     <div className={styles.SummonerContainer}>
       <h1>{user_name}</h1>
       <br />
-      <StudyList studyRecords={studyRecords} headText={'최신'} />
+      <StudyList
+        studyRecords={studyRecords}
+        headText={'최신'}
+        session={session}
+      />
     </div>
   )
 }

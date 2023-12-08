@@ -43,7 +43,7 @@ function App() {
           </div>
         ) : (
           <div className={styles.container}>
-            <Nav />
+            <Nav session={session} />
             <Routes>
               <Route path='/main_window' element={<Home session={session} />} />
               <Route path='/study' element={<Study session={session} />} />

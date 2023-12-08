@@ -1,11 +1,30 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { AiOutlineHome, AiOutlineEdit } from 'react-icons/ai'
 import { IoPersonCircleOutline } from 'react-icons/io5'
 import { RiTodoLine } from 'react-icons/ri'
 import styles from './Nav.module.css'
+import { supabase } from '../supabaseClient'
 
-const Nav = () => {
+const Nav = ({ session }) => {
+  const [user_name, setUser_name] = useState('')
+  useEffect(() => {
+    async function getProfiles() {
+      try {
+        let { data, error } = await supabase
+          .from('profiles')
+          .select('user_name')
+          .eq('id', session.user.id)
+
+        if (error) throw error
+        setUser_name(data[0].user_name)
+      } catch (error) {
+        console.error('Error fetching profiles:', error.message)
+      }
+    }
+
+    getProfiles()
+  }, [session])
   return (
     <nav className={styles.side_nav}>
       <NavLink
@@ -33,7 +52,7 @@ const Nav = () => {
         <AiOutlineEdit /> 내 학습
       </NavLink>
       <NavLink
-        to='/summoner/권기범'
+        to={`/summoner/${user_name}`}
         style={({ isActive }) => {
           return {
             textDecoration: isActive ? 'underline' : '',

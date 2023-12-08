@@ -30,7 +30,7 @@ const createWindow = () => {
     mainWindow.close()
   })
 
-  // Open the DevTools.
+  // !!!개발자도구!!!
   mainWindow.webContents.openDevTools()
 }
 
