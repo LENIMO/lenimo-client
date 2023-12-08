@@ -14,6 +14,7 @@ const createWindow = () => {
     maximizable: true,
     autoHideMenuBar: true,
     frame: false,
+    icon: path.join(__dirname, '../images/icon.png'),
     webPreferences: {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
       contextIsolation: false,
@@ -25,7 +26,9 @@ const createWindow = () => {
   // and load the index.html of the app.
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY)
 
-  ipcMain.on('trayApp', () => {
+  console.log(path.join(__dirname, '../images/icon'))
+
+  ipcMain.on('closeApp', () => {
     mainWindow.close()
   })
 

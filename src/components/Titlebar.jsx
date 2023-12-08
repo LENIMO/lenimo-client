@@ -4,7 +4,7 @@ const { ipcRenderer } = window.require('electron')
 
 const Titlebar = () => {
   const handleClickClose = () => {
-    ipcRenderer.send('trayApp')
+    ipcRenderer.send('closeApp')
   }
 
   return (
