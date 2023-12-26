@@ -5,6 +5,14 @@ import { supabase } from '../supabaseClient'
 
 const StudyItem = ({ data }) => {
   const dateObject = new Date(data.created_at)
+  const options = {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    timeZone: 'UTC',
+  }
   const publicUrl = supabase.storage
     .from('avatars')
     .getPublicUrl(`${data.profiles.avatar_url}`)
@@ -61,7 +69,9 @@ const StudyItem = ({ data }) => {
           </p>
           <p className={styles.fw400}>자기평가</p>
         </div>
-        <div>{dateObject.toLocaleString('ko-KR', { timeZone: 'UTC' })}</div>
+        <div>
+          {dateObject.toLocaleString('ko-KR', options).replace(/[.,]/g, '')}
+        </div>
       </div>
     </Link>
   )

@@ -3,17 +3,31 @@ import { Routes, Route, useParams } from 'react-router-dom'
 import styles from './Summoner.module.css'
 import StudyList from './components/StudyList.jsx'
 import { supabase } from './supabaseClient'
+import UserCard from './components/UserCard.jsx'
 
 const Summoner = (session) => {
   let { user_name } = useParams()
+  const [user, setUser] = useState({})
   const [studyRecords, setStudyRecords] = useState([])
 
   useEffect(() => {
+    const getUser = async () => {
+      const { data, error } = await supabase
+        .from('profiles')
+        .select(`*`)
+        .eq('user_name', user_name)
+        .single()
+      console.log(data)
+      setUser(data)
+    }
+
     async function getStudyRecord() {
       try {
         let { data, error } = await supabase
           .from('StudyRecord')
-          .select('*, profiles(user_name, avatar_url, position) ')
+          .select(
+            '*, profiles(user_name, avatar_url, position, total_study_time) '
+          )
           .eq('user_name', user_name)
 
         if (error) throw error
@@ -25,12 +39,12 @@ const Summoner = (session) => {
       }
     }
 
+    getUser()
     getStudyRecord()
   }, [session])
   return (
     <div className={styles.SummonerContainer}>
-      <h1>{user_name}</h1>
-      <br />
+      <UserCard user={user} />
       <StudyList
         studyRecords={studyRecords}
         headText={'최신'}

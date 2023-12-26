@@ -1,5 +1,7 @@
 .container {
   -webkit-app-region: drag;
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: space-between;
   width: 100dvw;
@@ -26,7 +28,7 @@
   font-weight: 500;
   cursor: pointer;
 
-  font-size: 0.83rem;
+  font-size: 1.6dvh;
 
   padding-right: 0.4rem;
   padding-left: 0.4rem;

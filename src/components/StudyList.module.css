@@ -1,3 +1,9 @@
 .StudyListWrap {
   width: 100%;
 }
+
+.headText {
+  font-weight: 700;
+  color: #fff;
+  margin: 1dvh;
+}

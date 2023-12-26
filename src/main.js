@@ -31,7 +31,7 @@ const createWindow = () => {
   })
 
   // !!!개발자도구!!!
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 }
 
 // This method will be called when Electron has finished

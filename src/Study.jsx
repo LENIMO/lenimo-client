@@ -34,7 +34,7 @@ const Study = ({ session }) => {
     const getUserName = async () => {
       const { data, error } = await supabase
         .from('profiles')
-        .select(`user_name, total_study_time`)
+        .select(`*`)
         .eq('id', user.id)
         .single()
       setUsername(data.user_name)
@@ -44,7 +44,9 @@ const Study = ({ session }) => {
 
     fetchSubjects()
     getUserName()
-  }, [])
+
+    console.log(getUserName())
+  }, [isloading])
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -205,7 +207,7 @@ const Study = ({ session }) => {
               border: 0,
               backgroundColor: '#f9be26',
               borderRadius: '1dvh',
-              fontSize: '1rem',
+              fontSize: '1.4rem',
             }}
           >
             {isloading ? '로딩 중' : '제출'}

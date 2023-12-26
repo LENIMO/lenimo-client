@@ -1,8 +1,21 @@
 .HomeContainer {
   width: 89dvw;
-  max-height: 96dvh;
   overflow: scroll;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   padding: 2%;
+}
+
+.RankingItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6dvh;
+  width: 100%;
+  margin: 1dvh;
+  padding: 2dvh;
+  color: #fff;
+  border: 2px solid #282b33;
+  border-radius: 1dvh;
 }

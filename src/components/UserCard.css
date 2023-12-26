@@ -1,0 +1,70 @@
+.userCard {
+  display: flex;
+
+  height: 20dvh;
+
+  margin: 2dvh 1vh 1dvh 1dvh;
+
+  background-image: url('../bg.jpg');
+  background-position: center;
+}
+
+.userCardInnerWrap {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  padding-right: 4dvw;
+  padding-left: 4dvw;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.2) 44%
+  );
+}
+
+.profileImg {
+  height: 66%;
+  border-radius: 100dvh;
+}
+
+.infos {
+  margin-left: 2dvh;
+  margin-right: 4dvh;
+  color: #fff;
+}
+
+.nameHeadText {
+  font-weight: 800;
+  font-size: 1.8rem;
+  margin-bottom: 0.1dvh;
+}
+
+.positionText {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.times {
+  color: #fff;
+}
+
+.timeHeadText {
+  font-weight: 800;
+  font-size: 1.4rem;
+  margin-bottom: 0.1dvh;
+  text-align: center;
+}
+
+.timeText {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.infoAndTimeWrap {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
