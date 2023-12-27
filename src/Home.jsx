@@ -11,11 +11,11 @@ const Home = ({ session }) => {
   useEffect(() => {
     async function getProfiles() {
       try {
-        let { data, error } = await supabase.from('profiles').select('*')
-        if (error) throw error
-        setProfiles(
-          data.sort((a, b) => b.total_study_time - a.total_study_time)
-        )
+        let { data, error } = await supabase.from('profiles').select('*');
+        if (error) throw error;
+        const sortedProfiles = data.sort((a, b) => b.total_study_time - a.total_study_time);
+        const topFiveProfiles = sortedProfiles.slice(0, 5);
+        setProfiles(topFiveProfiles);
       } catch (error) {
         console.error('Error fetching profiles:', error.message)
       }
